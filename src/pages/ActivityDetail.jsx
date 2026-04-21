@@ -5,6 +5,7 @@ export default function ActivityDetail() {
     const { id } = useParams();
     const { activities } = useApp();
 
+    // ✅ FIXED MATCHING
     const activity = activities.find(
         (a) => String(a.activityId) === String(id)
     );
