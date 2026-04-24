@@ -33,11 +33,21 @@ export const AppProvider = ({ children }) => {
         fetchData();
     }, []);
 
+    const updateActivity = (updatedActivity) => {
+        dispatch({ type: "UPDATE_ACTIVITY", payload: updatedActivity });
+    };
+
+    const toggleGoal = (activityId) => {
+        dispatch({ type: "TOGGLE_GOAL", payload: activityId });
+    };
+
     return (
         <AppContext.Provider
             value={{
                 activities: state.activities,
                 loading: state.loading,
+                updateActivity,
+                toggleGoal,
             }}
         >
             {children}

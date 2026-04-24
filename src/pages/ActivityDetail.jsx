@@ -5,12 +5,12 @@ export default function ActivityDetail() {
     const { id } = useParams();
     const { activities } = useApp();
 
-    // ✅ FIXED MATCHING
+    //  FIXED MATCHING
     const activity = activities.find(
         (a) => String(a.activityId) === String(id)
     );
 
-    if (!activity) return <h2>Invalid ID</h2>;
+    if (!activity) return <h2>Activity not found</h2>;
 
     const efficiency =
         activity.workoutMinutes > 0

@@ -15,7 +15,7 @@ export default function AppRouter() {
                 <Link to="/stats" style={{ textDecoration: "none", color: "#333", fontWeight: "bold" }}>Stats</Link>
             </nav>
             <Routes>
-                {/* 🔥 DEFAULT ROUTE */}
+                {/* DEFAULT ROUTE */}
                 <Route path="/" element={<Dashboard />} />
 
                 <Route path="/activities" element={<Activities />} />

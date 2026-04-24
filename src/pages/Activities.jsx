@@ -1,5 +1,18 @@
 import { useApp } from "../context/AppContext";
 
+function ActivityItem({ activity }) {
+    const { toggleGoal } = useApp();
+    return (
+        <div data-testid="activity-item" style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
+            <h3>{activity.name || "Unknown"}</h3>
+            <p>{activity.date || "No Date"}</p>
+            <p>Steps: {activity.steps}</p>
+            <p>Goal Achieved: {activity.goalAchieved ? "Yes" : "No"}</p>
+            <button onClick={() => toggleGoal(activity.activityId)}>Toggle Goal</button>
+        </div>
+    );
+}
+
 export default function Activities() {
     const { activities } = useApp();
 
@@ -18,11 +31,7 @@ export default function Activities() {
     return (
         <div>
             {validActivities.map((a) => (
-                <div key={a.activityId} data-testid="activity-item">
-                    <h3>{a.name || "Unknown"}</h3>
-                    <p>{a.date || "No Date"}</p>
-                    <p>Steps: {a.steps}</p>
-                </div>
+                <ActivityItem key={a.activityId} activity={a} />
             ))}
         </div>
     );
